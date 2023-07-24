@@ -1,0 +1,23 @@
+plugins {
+    id 'java-library' // Используем язык Java. Java-library легковестный вариант.
+}
+// Откуда зависимости цепляем, как правило, по дефолту mavenCentral()
+repositories {
+    mavenCentral()
+}
+// Зависимости, какие библиотеки (фреймворк, тест-ранер) будем использовать. Искать в https://mvnrepository.com/repos/central
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:6.16.0", // Селенид
+            "com.github.javafaker:javafaker:0.15", // Генерация данный. baeldung.com/java-faker
+            "org.junit.jupiter:junit-jupiter:5.9.3", // Junit5
+            "org.slf4j:slf4j-simple:2.0.7") // Простой и понятный синтаксис логов. Больше информации выводит
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform() // Говорим Gradle что будем использовать JUnit5
+}
