@@ -6,50 +6,34 @@ public class RegistrationWithPageObjectsTests extends TestBase {
 
     @Test
     void successfulRegistrationTest() {
-        String firstName = "Sergey",
-                lastName = "Konoplev",
-                studentName = firstName + ' ' + lastName,
-                userEmail = "sergeyKonoplev@gmail.com",
-                gender = "Male",
-                userNumber = "9875036934",
-                fullDateOfBirth = "08 May,1996",
-                dayOfBirth = "08",
-                monthOfBirth = "May",
-                yearOfBirth = "1996",
-                subjects = "Maths",
-                hobbies = "Sports",
-                picture = "img/1.png",
-                verifyPicture = "1.png",
-                currentAddress = "Russia",
-                state = "NCR",
-                city = "Delhi",
-                stateAndCity = state + ' ' + city;
+
+        TestData data = new TestData();
 
         registrationPage.openPage()
-                        .setFirstName(firstName)
-                        .setLastName(lastName)
-                        .setEmail(userEmail)
-                        .setGender(gender)
-                        .setUserNumber(userNumber)
-                        .setBirthDate(dayOfBirth, monthOfBirth, yearOfBirth)
-                        .setSubject(subjects)
-                        .setHobbies(hobbies)
-                        .setUploadPic(picture)
-                        .setCurrentAddress(currentAddress)
-                        .setState(state)
-                        .setCity(city)
+                        .setFirstName(data.firstNameData)
+                        .setLastName(data.lastNameData)
+                        .setEmail(data.userEmailData)
+                        .setGender(data.genderData)
+                        .setUserNumber(data.userNumberData)
+                        .setBirthDate(data.dayOfBirthData, data.monthOfBirthData, data.yearOfBirthData)
+                        .setSubject(data.subjectsData)
+                        .setHobbies(data.hobbiesData)
+                        .setUploadPic(data.pictureData)
+                        .setCurrentAddress(data.currentAddressData)
+                        .setState(data.stateData)
+                        .setCity(data.cityData)
                         .setSubmit();
 
         registrationPage.verifyResultsModalAppears()
-                        .verifyResult("Student Name", studentName)
-                        .verifyResult("Student Email", userEmail)
-                        .verifyResult("Gender", gender)
-                        .verifyResult("Mobile", userNumber)
-                        .verifyResult("Date of Birth", fullDateOfBirth)
-                        .verifyResult("Subjects", subjects)
-                        .verifyResult("Hobbies", hobbies)
-                        .verifyResult("Picture", verifyPicture)
-                        .verifyResult("Address", currentAddress)
-                        .verifyResult("State and City", stateAndCity);
+                        .verifyResult("Student Name", data.studentNameData)
+                        .verifyResult("Student Email", data.userEmailData)
+                        .verifyResult("Gender", data.genderData)
+                        .verifyResult("Mobile", data.userNumberData)
+                        .verifyResult("Date of Birth", data.fullDateOfBirthData)
+                        .verifyResult("Subjects", data.subjectsData)
+                        .verifyResult("Hobbies", data.hobbiesData)
+                        .verifyResult("Picture", data.verifyPictureData)
+                        .verifyResult("Address", data.currentAddressData)
+                        .verifyResult("State and City", data.stateAndCityData);
     }
 }

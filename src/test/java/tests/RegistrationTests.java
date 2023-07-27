@@ -5,8 +5,6 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -24,23 +22,23 @@ public class RegistrationTests {
 
     @Test
     void successfulRegistrationTest() {
-        String firstName = "Sergey";
-        String lastName = "Konoplev";
-        String userEmail = "sergeyKonoplev@gmail.com";
-        String gender = "Male";
-        String userNumber = "9875036934";
-        String fullDateOfBirth = "08 May,1996";
-        String dayOfBirth = "08";
-        String monthOfBirth = "May";
-        String yearOfBirth = "1996";
-        String subjects = "Maths";
-        String hobbies = "Sports";
-        String picture = "img/1.png";
-        String verifyPicture = "1.png";
-        String currentAddress = "Russia";
-        String state = "NCR";
-        String city = "Delhi";
-        String stateAndCity = state + ' ' + city;
+        String firstName = "Sergey",
+                lastName = "Konoplev",
+                userEmail = "sergeyKonoplev@gmail.com",
+                gender = "Male",
+                userNumber = "9875036934",
+                fullDateOfBirth = "08 May,1996",
+                dayOfBirth = "08",
+                monthOfBirth = "May",
+                yearOfBirth = "1996",
+                subjects = "Maths",
+                hobbies = "Sports",
+                picture = "img/1.png",
+                verifyPicture = "1.png",
+                currentAddress = "Russia",
+                state = "NCR",
+                city = "Delhi",
+                stateAndCity = state + ' ' + city;
 
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
